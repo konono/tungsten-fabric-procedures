@@ -3,7 +3,8 @@
 ## 1. Create VM using by Vagrant
 
 ### 1.1. Create Vagrant file & Directory
-**Host**
+Target: **Host**
+
 ```
 $ cd ~
 $ mkdir c01
@@ -52,7 +53,7 @@ $ vagrant ssh
 ```
 
 # 2. Prepare deploy
-**VM**
+Target: **VM**
 ```
 $ sudo su -
 ```
@@ -77,12 +78,12 @@ $ sudo systemctl enable ntpd
 ### 2.4. Increase disk size
 *The CentOS Disk size defaults to 40 GB, however AIO Requirements will require 300 GB. So we need to increase the Disk size*
 
-**VM**
+Target: **VM**
 ```
 $ sudo shutdown -h now
 ```
 
-**Host**
+Target: **Host**
 ```
 cd /var/lib/libvirt/images/
 sudo qemu-img resize c01_k1.img +250G
@@ -92,7 +93,7 @@ vagrant up
 vagrant ssh
 ```
 
-**VM**
+Target: **VM**
 ```
 sudo fdisk /dev/vda
 ======================================================================
@@ -133,12 +134,12 @@ Syncing disks.
 sudo reboot
 ```
 
-**Host1**
+Target: **Host**
 ```
 vagrant ssh
 ```
 
-**VM1**
+Target: **VM**
 ```
 $ sudo su -
 $ sudo pvresize /dev/vda3
@@ -159,7 +160,7 @@ sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/ta
 
 ### 2.7. Configuration instances.yaml
 
-**NW information for My environment**
+**NW information for my environment**
 ```
 ======================================================================
 [root@localhost ~]# ip -o a
@@ -255,12 +256,12 @@ $ cd contrail-ansible-deployer
 $ ansible-playbook -i inventory/ playbooks/configure_instances.yml
 
 ### 2.9. Apply patch
-sed -i 's/use_neutron = True//g' ~/contrail-kolla-ansible/ansible/roles/nova/templates/nova.conf.j2
+$ sed -i 's/use_neutron = True//g' ~/contrail-kolla-ansible/ansible/roles/nova/templates/nova.conf.j2
 
 ***[Patch information](https://bugs.launchpad.net/kolla-ansible/+bug/1651665)***
 
 ### 2.10. Deploy Contrail+OpenStack 
-ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_contrail.yml
+$ ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_contrail.yml
 
 ### 2.11. Check contrail-status
 
