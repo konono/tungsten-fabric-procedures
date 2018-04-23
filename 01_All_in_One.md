@@ -219,7 +219,9 @@ kolla_config:
     nova.conf: |
       [libvirt]
       virt_type=kvm
+     #virt_type=qemu
       cpu_mode=host-passthrough
+     #cpu_mode=none
   kolla_globals:
     openstack_release: ocata
     contrail_api_interface_address: 172.27.116.120
