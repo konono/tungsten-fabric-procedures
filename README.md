@@ -14,7 +14,7 @@ Because you are using OpenStack kolla, you can quickly deploy using Docker Conta
 
 We will deploy using the following two docker repositories.
    - [https://hub.docker.com/u/kolla/](https://hub.docker.com/u/kolla/) 
-   - [https://hub.docker.com/u/kolla/](https://hub.docker.com/u/opencontrailnightly/)
+   - [https://hub.docker.com/u/opencontrailnightly/](https://hub.docker.com/u/opencontrailnightly/)
 
 Each repository is daily build, so the latest version will always be deployed.
 
