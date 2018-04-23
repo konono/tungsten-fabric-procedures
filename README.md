@@ -6,7 +6,7 @@ In addition, We prepare multiple use cases so that more people can experience Tu
 
 ## Description
 
-The procedure in this repository is deployed using [contrail-ansible-deployer] (https://github.com/Juniper/contrail-ansible-deployer) in the Juniper Networks repository.
+The procedure in this repository is deployed using https://github.com/Juniper/contrail-ansible-deployer in the Juniper Networks repository.
 
 The tools used for deployment are Ansible and OpenStack kolla.
 
