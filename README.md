@@ -24,7 +24,7 @@ Also, if you want to fix the version, you need to build a local repository.
 
 We upload steps individually for each use case.
 
-### How to install vagrant
+## How to install vagrant
 
 In my procedure, I use vagrant-libvirt to create a VM.
 
