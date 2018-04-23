@@ -148,13 +148,16 @@ $ sudo xfs_growfs /dev/mapper/VolGroup00-LogVol00
 ```
 
 ### 2.5 Clone repository 
+```
 $ cd ~/
 $ git clone http://github.com/Juniper/contrail-ansible-deployer
 $ cd contrail-ansible-deployer/
-
+```
 
 ### 2.6. Apply patch
+```
 sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/tasks/host_params.yml
+```
 
 ***[Patch information](https://github.com/Juniper/contrail-ansible-deployer/pull/14)***
 
@@ -251,17 +254,22 @@ contrail_configuration:
 ```
 
 ### 2.8. Configure instance
-
+```
 $ cd contrail-ansible-deployer
 $ ansible-playbook -i inventory/ playbooks/configure_instances.yml
+```
 
 ### 2.9. Apply patch
+```
 $ sed -i 's/use_neutron = True//g' ~/contrail-kolla-ansible/ansible/roles/nova/templates/nova.conf.j2
+```
 
 ***[Patch information](https://bugs.launchpad.net/kolla-ansible/+bug/1651665)***
 
-### 2.10. Deploy Contrail+OpenStack 
+### 2.10. Deploy Contrail+OpenStack
+```
 $ ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_contrail.yml
+```
 
 ### 2.11. Check contrail-status
 
@@ -376,7 +384,6 @@ agent: inactive <--- Inactive Stat is wrong
 ```
 [root@localhost ~]# lsmod |grep vrouter
 vrouter               460243  2
-
 ```
 
 #### 1.2. Check vhost interface
