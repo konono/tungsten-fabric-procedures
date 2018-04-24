@@ -369,6 +369,12 @@ virsh snapshot-delete c01_k1 Init
 virsh snapshot-create-as c01_k1 Init
 ```
 
+### How to use openstack command
+```
+e.g.
+docker exec kolla_toolbox openstack --os-interface internal --os-auth-url http://xxx.xxx.xxx.xxx:35357/v3 --os-identity-api-version 3 --os-project-domain-name default --os-tenant-name admin --os-username admin --os-password lab --os-user-domain-name default compute service list -f json --service nova-compute
+```
+
 # Trouble-shooting
 ### 1. vRouter-agent is not stiil down
 
