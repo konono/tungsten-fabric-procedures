@@ -375,6 +375,18 @@ e.g.
 docker exec kolla_toolbox openstack --os-interface internal --os-auth-url http://xxx.xxx.xxx.xxx:35357/v3 --os-identity-api-version 3 --os-project-domain-name default --os-tenant-name admin --os-username admin --os-password lab --os-user-domain-name default compute service list -f json --service nova-compute
 ```
 
+### How to start openstack
+
+```
+pip install --upgrade pip
+pip install python-openstackclient
+source /etc/kolla/admin-openrc.sh
+
+curl -O http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+openstack image create --file cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public cirros
+openstack flavor create --id 0 --vcpus 1 --ram 512 --disk 1 m1.nano
+```
+
 # Trouble-shooting
 ### 1. vRouter-agent is not stiil down
 
