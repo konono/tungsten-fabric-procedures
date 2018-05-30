@@ -182,7 +182,6 @@ sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/ta
 
 ```
 $ vim config/instances.yaml
-
 #######################################################################
 #Eth0 - Tenant NW(vhost0)
 #Eth1 - Internal API
@@ -193,7 +192,10 @@ provider_config:
   bms:
     ssh_pwd: lab
     ssh_user: root
-    domainsuffix: local
+    ntpserver: 210.173.160.27
+    domainsuffix: localdomain
+#    ssh_public_key: /home/centos/.ssh/id_rsa.pub  # Optional. Not needed if ssh password is used.
+#    ssh_private_key: /home/centos/.ssh/id_rsa     # Optional. Not needed if ssh password is used.
 instances:
   bms1:
     provider: bms
@@ -212,19 +214,16 @@ instances:
         openstack_monitoring:
         vrouter:
           VROUTER_GATEWAY: 192.168.120.1
-          IPFABRIC_SERVICE_HOST: 192.168.120.202
+          PHYSICAL_INTERFACE: eth0
         openstack_compute:
 kolla_config:
   customize:
     nova.conf: |
       [libvirt]
       virt_type=kvm
-     #virt_type=qemu
       cpu_mode=host-passthrough
-     #cpu_mode=none
   kolla_globals:
     openstack_release: ocata
-    contrail_api_interface_address: 172.27.116.120
     enable_haproxy: yes
     enable_swift: no
     enable_barbican: no
@@ -234,12 +233,17 @@ kolla_config:
     kolla_internal_vip_address: 172.27.116.120
     kolla_external_vip_interface: eth2
     kolla_external_vip_address: 10.1.0.120
+    contrail_api_interface_address: 172.27.116.120
   kolla_passwords:
     keystone_admin_password: lab
 global_configuration:
   CONTAINER_REGISTRY: opencontrailnightly
+#  REGISTRY_PRIVATE_INSECURE: True
+#  CONTAINER_REGISTRY_USERNAME: YourRegistryUser
+#  CONTAINER_REGISTRY_PASSWORD: YourRegistryPassword
 contrail_configuration:
   CONTRAIL_VERSION: latest
+  UPGRADE_KERNEL: true
   CLOUD_ORCHESTRATOR: openstack
   CONTROL_DATA_NET_LIST: 192.168.120.0/24
   CONTROLLER_NODES: 172.27.116.93
