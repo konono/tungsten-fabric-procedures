@@ -272,7 +272,12 @@ $ sed -i 's/use_neutron = True//g' ~/contrail-kolla-ansible/ansible/roles/nova/t
 
 ***[Patch information](https://bugs.launchpad.net/kolla-ansible/+bug/1651665)***
 
-### 2.10. Deploy Contrail+OpenStack
+### 2.10.1 Deploy OpenStack
+```
+$ ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_openstack.yml
+```
+
+### 2.10.2 Deploy Contrail
 ```
 $ ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_contrail.yml
 ```
