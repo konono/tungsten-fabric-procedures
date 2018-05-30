@@ -234,6 +234,7 @@ kolla_config:
     kolla_external_vip_interface: eth2
     kolla_external_vip_address: 10.1.0.120
     contrail_api_interface_address: 172.27.116.120
+    keepalived_virtual_router_id: 29
   kolla_passwords:
     keystone_admin_password: lab
 global_configuration:
@@ -256,7 +257,6 @@ contrail_configuration:
   RABBITMQ_NODE_PORT: 5673
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
-
 ```
 
 ### 2.8. Configure instance
