@@ -177,10 +177,8 @@ $ sudo xfs_growfs /dev/mapper/VolGroup00-LogVol00
 2: eth0    inet 192.168.120.202/24 brd 192.168.120.255 scope global eth0\       valid_lft forever preferred_lft forever
 2: eth0    inet6 fe80::5054:ff:fef1:5155/64 scope link \       valid_lft forever preferred_lft forever
 3: eth1    inet 172.27.116.93/23 brd 172.27.117.255 scope global eth1\       valid_lft forever preferred_lft forever
-3: eth1    inet 172.27.116.120/32 scope global eth1\       valid_lft forever preferred_lft forever
 3: eth1    inet6 fe80::5054:ff:fe36:2650/64 scope link \       valid_lft forever preferred_lft forever
 4: eth2    inet 10.1.0.93/24 brd 10.1.0.255 scope global eth2\       valid_lft forever preferred_lft forever
-4: eth2    inet 10.1.0.120/32 scope global eth2\       valid_lft forever preferred_lft forever
 4: eth2    inet6 fe80::5054:ff:fedb:bf29/64 scope link \       valid_lft forever preferred_lft forever
 ======================================================================
 ```
@@ -222,7 +220,7 @@ sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/ta
 
 ### 2.9. Configuration instances.yaml
 
-**NW information in my environment**
+**NW information in my environment (before deploy)**
 ```
 ======================================================================
 [root@localhost ~]# ip -o a
@@ -231,11 +229,27 @@ sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/ta
 2: eth0    inet 192.168.120.202/24 brd 192.168.120.255 scope global eth0\       valid_lft forever preferred_lft forever
 2: eth0    inet6 fe80::5054:ff:fef1:5155/64 scope link \       valid_lft forever preferred_lft forever
 3: eth1    inet 172.27.116.93/23 brd 172.27.117.255 scope global eth1\       valid_lft forever preferred_lft forever
-3: eth1    inet 172.27.116.120/32 scope global eth1\       valid_lft forever preferred_lft forever
 3: eth1    inet6 fe80::5054:ff:fe36:2650/64 scope link \       valid_lft forever preferred_lft forever
 4: eth2    inet 10.1.0.93/24 brd 10.1.0.255 scope global eth2\       valid_lft forever preferred_lft forever
-4: eth2    inet 10.1.0.120/32 scope global eth2\       valid_lft forever preferred_lft forever
 4: eth2    inet6 fe80::5054:ff:fedb:bf29/64 scope link \       valid_lft forever preferred_lft forever
+======================================================================
+```
+
+**NW information in my environment (after deploy)**
+```
+======================================================================
+[root@localhost ~]# ip -o a
+1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
+1: lo    inet6 ::1/128 scope host \       valid_lft forever preferred_lft forever
+2: eth0    inet 192.168.120.202/24 brd 192.168.120.255 scope global dynamic eth0\       valid_lft 2232sec preferred_lft 2232sec
+2: eth0    inet 192.168.120.120/32 scope global eth0\       valid_lft forever preferred_lft forever
+2: eth0    inet6 fe80::5054:ff:fef1:5155/64 scope link \       valid_lft forever preferred_lft forever
+3: eth1    inet 172.27.116.93/23 brd 172.27.117.255 scope global eth1\       valid_lft forever preferred_lft forever
+3: eth1    inet 172.27.116.120/32 scope global eth1\       valid_lft forever preferred_lft forever
+3: eth1    inet6 fe80::5054:ff:fe36:2650/64 scope link \       valid_lft forever preferred_lft forever
+8: vhost0    inet 10.1.0.93/24 brd 10.1.0.255 scope global vhost0\       valid_lft forever preferred_lft forever
+8: vhost0    inet6 fe80::5054:ff:fedb:bf29/64 scope link \       valid_lft forever preferred_lft forever
+9: docker0    inet 172.17.0.1/16 scope global docker0\       valid_lft forever preferred_lft forever
 ======================================================================
 ```
 
@@ -349,33 +363,31 @@ $ ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_con
 ```
 [root@localhost ~]# contrail-status
 Pod        Service         Original Name                          State    Status
-analytics  alarm-gen       contrail-analytics-alarm-gen           running  Up 2 days
-analytics  api             contrail-analytics-api                 running  Up 2 days
-analytics  collector       contrail-analytics-collector           running  Up 2 days
-analytics  nodemgr         contrail-nodemgr                       running  Up 2 days
-analytics  query-engine    contrail-analytics-query-engine        running  Up 2 days
-analytics  snmp-collector  contrail-analytics-snmp-collector      running  Up 2 days
-analytics  topology        contrail-analytics-topology            running  Up 2 days
-config     api             contrail-controller-config-api         running  Up 2 days
-config     cassandra       contrail-external-cassandra            running  Up 2 days
-config     device-manager  contrail-controller-config-devicemgr   running  Up 2 days
-config     nodemgr         contrail-nodemgr                       running  Up 2 days
-config     rabbitmq        contrail-external-rabbitmq             running  Up 2 days
-config     schema          contrail-controller-config-schema      running  Up 2 days
-config     svc-monitor     contrail-controller-config-svcmonitor  running  Up 2 days
-config     zookeeper       contrail-external-zookeeper            running  Up 2 days
-control    control         contrail-controller-control-control    running  Up 2 days
-control    dns             contrail-controller-control-dns        running  Up 2 days
-control    named           contrail-controller-control-named      running  Up 2 days
-control    nodemgr         contrail-nodemgr                       running  Up 2 days
-database   cassandra       contrail-external-cassandra            running  Up 2 days
-database   kafka           contrail-external-kafka                running  Up 2 days
-database   nodemgr         contrail-nodemgr                       running  Up About an hour
-database   zookeeper       contrail-external-zookeeper            running  Up 2 days
-vrouter    agent           contrail-vrouter-agent                 running  Up 2 days
-vrouter    nodemgr         contrail-nodemgr                       running  Up 2 days
-webui      job             contrail-controller-webui-job          running  Up 2 days
-webui      web             contrail-controller-webui-web          running  Up 2 days
+analytics  alarm-gen       contrail-analytics-alarm-gen           running  Up 18 minutes
+analytics  api             contrail-analytics-api                 running  Up 20 minutes
+analytics  collector       contrail-analytics-collector           running  Up 20 minutes
+analytics  nodemgr         contrail-nodemgr                       running  Up 20 minutes
+analytics  query-engine    contrail-analytics-query-engine        running  Up 20 minutes
+config     api             contrail-controller-config-api         running  Up 20 minutes
+config     cassandra       contrail-external-cassandra            running  Up 20 minutes
+config     device-manager  contrail-controller-config-devicemgr   running  Up 20 minutes
+config     nodemgr         contrail-nodemgr                       running  Up 20 minutes
+config     rabbitmq        contrail-external-rabbitmq             running  Up 20 minutes
+config     schema          contrail-controller-config-schema      running  Up 20 minutes
+config     svc-monitor     contrail-controller-config-svcmonitor  running  Up 20 minutes
+config     zookeeper       contrail-external-zookeeper            running  Up 20 minutes
+control    control         contrail-controller-control-control    running  Up 20 minutes
+control    dns             contrail-controller-control-dns        running  Up 20 minutes
+control    named           contrail-controller-control-named      running  Up 20 minutes
+control    nodemgr         contrail-nodemgr                       running  Up 20 minutes
+database   cassandra       contrail-external-cassandra            running  Up 20 minutes
+database   kafka           contrail-external-kafka                running  Up 20 minutes
+database   nodemgr         contrail-nodemgr                       running  Up 20 minutes
+database   zookeeper       contrail-external-zookeeper            running  Up 20 minutes
+vrouter    agent           contrail-vrouter-agent                 running  Up 20 minutes
+vrouter    nodemgr         contrail-nodemgr                       running  Up 20 minutes
+webui      job             contrail-controller-webui-job          running  Up 20 minutes
+webui      web             contrail-controller-webui-web          running  Up 20 minutes
 
 vrouter kernel module is PRESENT
 == Contrail control ==
@@ -391,13 +403,11 @@ zookeeper: active
 cassandra: active
 
 == Contrail analytics ==
-snmp-collector: active
-query-engine: active
-api: active
-alarm-gen: active
 nodemgr: active
+api: active
 collector: active
-topology: active
+query-engine: active
+alarm-gen: active
 
 == Contrail webui ==
 web: active
@@ -421,30 +431,6 @@ schema: active
 :)
 
 # Tips 
-### Create Snapshot and revert tool
-```
-vagrant halt
-virsh snapshot-create-as c01_k1 Init
-
-
-cat <<EOF> revert.sh
-virsh snapshot-revert c02_k1 Init
-sleep 5
-vagrant up
-EOF
-```
-
-### Recreate Snapshot
-```
-virsh snapshot-delete c01_k1 Init
-virsh snapshot-create-as c01_k1 Init
-```
-
-### How to use openstack command
-```
-e.g.
-docker exec kolla_toolbox openstack --os-interface internal --os-auth-url http://xxx.xxx.xxx.xxx:35357/v3 --os-identity-api-version 3 --os-project-domain-name default --os-tenant-name admin --os-username admin --os-password lab --os-user-domain-name default compute service list -f json --service nova-compute
-```
 
 ### How to start openstack
 
@@ -845,6 +831,31 @@ PING 192.168.100.4 (192.168.100.4): 56 data bytes
 round-trip min/avg/max = 2.316/2.505/2.695 ms
 $ Connection to 169.254.0.3 closed.
 
+```
+
+### Create Snapshot and revert tool
+```
+vagrant halt
+virsh snapshot-create-as c01_k1 Init
+
+
+cat <<EOF> revert.sh
+virsh snapshot-revert c02_k1 Init
+sleep 5
+vagrant up
+EOF
+```
+
+### Recreate Snapshot
+```
+virsh snapshot-delete c01_k1 Init
+virsh snapshot-create-as c01_k1 Init
+```
+
+### How to use openstack command
+```
+e.g.
+docker exec kolla_toolbox openstack --os-interface internal --os-auth-url http://xxx.xxx.xxx.xxx:35357/v3 --os-identity-api-version 3 --os-project-domain-name default --os-tenant-name admin --os-username admin --os-password lab --os-user-domain-name default compute service list -f json --service nova-compute
 ```
 
 # Trouble-shooting
