@@ -307,9 +307,9 @@ kolla_config:
     kolla_external_vip_interface: eth1
     kolla_external_vip_address: 172.27.116.120
     # heat/templates/heat.conf.j2:api_server = {{ contrail_api_interface_address }}
-    contrail_api_interface_address: 192.168.120.202
+    contrail_api_interface_address: 10.1.0.93
     # neutron/templates/ContrailPlugin.ini.j2:api_server_ip = {{ opencontrail_api_server_ip }}
-    opencontrail_api_server_ip: 192.168.120.202
+    opencontrail_api_server_ip: 10.1.0.93
     keepalived_virtual_router_id: 33
   kolla_passwords:
     keystone_admin_password: lab
@@ -322,13 +322,13 @@ contrail_configuration:
   CONTRAIL_VERSION: ocata-master-117
   UPGRADE_KERNEL: true
   CLOUD_ORCHESTRATOR: openstack
-  CONTROLLER_NODES: 192.168.120.202
-  CONTROL_NODES: 192.168.120.202
-  ANALYTICSDB_NODES: 192.168.120.202
-  WEBUI_NODES: 192.168.120.202
-  ANALYTICS_NODES: 192.168.120.202
-  CONFIGDB_NODES: 192.168.120.202
-  CONFIG_NODES: 192.168.120.202
+  CONTROLLER_NODES: 10.1.0.93
+  CONTROL_NODES: 10.1.0.93
+  ANALYTICSDB_NODES: 10.1.0.93
+  WEBUI_NODES: 10.1.0.93
+  ANALYTICS_NODES: 10.1.0.93
+  CONFIGDB_NODES: 10.1.0.93
+  CONFIG_NODES: 10.1.0.93
   RABBITMQ_NODE_PORT: 5673
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
