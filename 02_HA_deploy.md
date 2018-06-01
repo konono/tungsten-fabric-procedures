@@ -401,7 +401,7 @@ sed -i 's/roles.item /roles[item] /g' playbooks/roles/create_openstack_config/ta
 ```
 $ vim contrail-ansible-deployer/config/instances.yaml
 
-```
+
 #######################################################################
 #Eth0 - Internal API 192.168.120.0/24
 #Eth1 - External API 172.27.116.0/23
