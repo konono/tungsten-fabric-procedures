@@ -34,9 +34,11 @@ So, if you use Vagrant in the same way please do following procedure.
 
 ## Use Case
 ### 1. ALL in One Deploy
-[01_All_in_One](https://github.com/konono/tungsten-fabric-procedures/blob/master/01_All_in_One.md)
+[01_All_in_One_singleNIC](https://github.com/konono/tungsten-fabric-procedures/blob/master/01_All_in_One_singleNIC.md)
 
-[02_HA_deploy](https://github.com/konono/tungsten-fabric-procedures/blob/master/02_HA_deploy.md)
+[02_All_in_One_multiNIC](https://github.com/konono/tungsten-fabric-procedures/blob/master/02_All_in_One_multiNIC.md)
+
+[03_HA_deploy](https://github.com/konono/tungsten-fabric-procedures/blob/master/03_HA_deploy.md)
 
 ## Licence
 
