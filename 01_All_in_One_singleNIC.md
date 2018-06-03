@@ -8,7 +8,7 @@ CentOS: CentOS Linux release 7.4.1708 (Core)
 
 Kernel: 3.10.0-862.3.2.el7.x86_64 #1 SMP Mon May 21 23:36:36 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 
-Network Interface: 3NIC
+Network Interface: 1NIC
 
 KVM Host: Enable Nested
 
