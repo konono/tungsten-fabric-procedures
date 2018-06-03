@@ -547,6 +547,7 @@ contrail_configuration:
   RABBITMQ_NODE_PORT: 5673
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
+  KEYSTONE_AUTH_HOST: 192.168.120.236
 ```
 
 ### 2.10. Configure instance
