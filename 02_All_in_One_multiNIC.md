@@ -332,6 +332,7 @@ contrail_configuration:
   RABBITMQ_NODE_PORT: 5673
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
+  KEYSTONE_AUTH_HOST: 10.1.0.93
 
 ```
 
