@@ -33,11 +33,13 @@ So, if you use Vagrant in the same way please do following procedure.
 [How to install Vagrant-libvirt](https://github.com/konono/tungsten-fabric-procedures/blob/master/vagrant/01_install_vagrant-libvirt.md)
 
 ## Use Case
-### 1. ALL in One Deploy
+### 1. ALL in One Deploy (SingleNIC)
 [01_All_in_One_singleNIC](https://github.com/konono/tungsten-fabric-procedures/blob/master/01_All_in_One_singleNIC.md)
 
+### 2. ALL in One Deploy(MultiNIC)
 [02_All_in_One_multiNIC](https://github.com/konono/tungsten-fabric-procedures/blob/master/02_All_in_One_multiNIC.md)
 
+### 3. HA Deploy(5Nodes and MultiNIC)
 [03_HA_deploy](https://github.com/konono/tungsten-fabric-procedures/blob/master/03_HA_deploy.md)
 
 ## Licence
