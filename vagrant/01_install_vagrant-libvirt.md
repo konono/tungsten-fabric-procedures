@@ -2,8 +2,12 @@
 
 ### Ubuntu 12.04/14.04/16.04, Debian:
 ```
-$ wget https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.deb
-$ sudo dpkg -i vagrant_2.0.3_x86_64.deb
+Plz download latest version.
+https://releases.hashicorp.com/vagrant/vagrant_x.x.x/vagrant_x.x.x_x86_64.deb
+
+e.g
+$ wget https://releases.hashicorp.com/vagrant_2.1.1/vagrant_2.1.1_x86_64.deb
+$ sudo dpkg -i vagrant_2.1.1_x86_64.deb
 $ sudo apt-get install qemu libvirt-bin ebtables ruby-libvirt 
 $ sudo apt-get install libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev
 ```
