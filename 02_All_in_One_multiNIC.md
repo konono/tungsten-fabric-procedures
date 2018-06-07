@@ -82,6 +82,7 @@ $ sudo su -
 ```
 $ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 $ sudo systemctl restart sshd
+$ sudo passwd root
 ```
 
 ### 2.2. Install require packages
