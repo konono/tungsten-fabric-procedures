@@ -236,6 +236,9 @@ $ vim /home/ubuntu/.vagrant.d/gems/gems/vagrant-libvirt-0.0.43/lib/vagrant-libvi
 ### Bug information
 
 [Can't create "public bridged network" together with "private network" in a VM.](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/842)
+-> Plz apply patch yourself.
 
+[vagrant up fails with "Initialization parameters must be an attributes hash, got NilClass nil" exception](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/578)
+-> Plz restart libvirtd.
 
 Happy Vagrant :)
