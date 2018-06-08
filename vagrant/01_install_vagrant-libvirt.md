@@ -204,6 +204,7 @@ Vagrant.configure(2) do |config|
       lv.uri = 'qemu+unix:///system'
       lv.cpus = 4
       lv.memory = 1000
+      lv.cpu_mode = 'host-passthrough'
       boot_network = {'network' => 'am'}
       lv.storage :file, :size => '100G', :type => 'qcow2'
       lv.boot boot_network
@@ -228,6 +229,7 @@ Vagrant.configure(2) do |config|
 end
 ------------------------------------------------------------------------
 ```
+
 
 # TIPS
 
