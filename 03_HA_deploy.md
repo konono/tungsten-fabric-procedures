@@ -153,7 +153,7 @@ $ sudo passwd root
 
 ### 2.2. Install require packages
 ```
-$ sudo yum install -y vim ntp epel-release git ansible net-tools
+$ sudo yum install -y vim ntp epel-release git ansible net-tools python-devel
 ```
 
 ### 2.3. Start and enable ntpd
