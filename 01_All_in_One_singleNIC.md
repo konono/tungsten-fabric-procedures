@@ -6,19 +6,19 @@ Vagrant Box: centos/7
 
 CentOS: CentOS Linux release 7.4.1708 (Core)
 
-Kernel: 3.10.0-862.3.2.el7.x86_64 #1 SMP Mon May 21 23:36:36 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+Kernel: 3.10.0-862.9.1.el7.x86_64
 
 Network Interface: 1NIC
 
 KVM Host: Enable Nested
 
-contrail-ansible-deployer: commit 68549ff687c5a0db443bc737a17f02b3eeb54844
+contrail-ansible-deployer: commit a49186a1e454d45a3f8ac7499fc04885e42a037c
 
-contrail-kolla-ansible: commit 4039df48af4df04d0afb3b0c940356c7794a88f7
+contrail-kolla-ansible: commit bea4145fb1044be0c637c4b8eef34dbc11aad25f
 
 CONTAINER_REGISTRY: opencontrailnightly
 
-CONTRAIL_VERSION: ocata-master-117
+CONTRAIL_VERSION: ocata-master-206
 
 ## 1. Create VM using by Vagrant
 
