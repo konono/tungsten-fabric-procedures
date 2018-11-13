@@ -115,21 +115,21 @@ k2$ sudo -i
 **You should following steps, If you do not use vagrant.**
 
 ### Prepare deploy
-Target: **k2**
+Target: **k1/k2**
 ```
-k2$ sudo su -
+k1/k2$ sudo su -
 
 # Set password
-k2$ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-k2$ sudo systemctl restart sshd
-k2$ sudo passwd root
+k1/k2$ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+k1/k2$ sudo systemctl restart sshd
+k1/k2$ sudo passwd root
 
 # Install require packages
-$ sudo yum install -y vim ntp epel-release git ansible net-tools python-devel
+k1/k2$ sudo yum install -y vim ntp epel-release git ansible net-tools python-devel
 
 # Start NTP server
-$ sudo systemctl restart ntpd
-$ sudo systemctl enable ntpd
+k1/k2$ sudo systemctl restart ntpd
+k1/k2$ sudo systemctl enable ntpd
 ```
 
 
@@ -158,9 +158,8 @@ k2$ vim /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 k2.lab k2
 172.27.116.133  k2.lab k2
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-```
-
 k2$ exit
+```
 
 ### 2.2. Deploy VM & Login
 ```
