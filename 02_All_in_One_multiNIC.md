@@ -1,12 +1,15 @@
 # Contrail 5.0.1 + OpenStack kolla ALL In One Install
 
 ## 0. Rqeuirement
+Node: 2Node
+  - K1: Deploy node
+  - k2: Contrail and OpenStack node
 
 Vagrant Box: centos/7
 
 CentOS: CentOS Linux release 7.5.1804 (Core)
 
-Linux k2.lab 3.10.0-862.14.4.el7.x86_64 #1 SMP Wed Sep 26 15:12:11 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+Kernel: Linux k2.lab 3.10.0-862.14.4.el7.x86_64 #1 SMP Wed Sep 26 15:12:11 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 
 Network Interface: 3NIC
 
