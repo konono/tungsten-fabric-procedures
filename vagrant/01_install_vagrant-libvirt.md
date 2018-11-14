@@ -12,10 +12,12 @@ $ sudo apt-get install qemu libvirt-bin ebtables ruby-libvirt
 $ sudo apt-get install libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev
 ```
 
-### Install vagrant-libvirt plugin
+### Install vagrant-libvirt plugins
 ```
 $ vagrant plugin install vagrant-libvirt
 $ vagrant plugin install vagrant-mutate
+### Regist Red Hat user when deploy.
+$ vagrant plugin install vagrant-registration
 ```
 
 ### Add Box
@@ -246,5 +248,8 @@ $ vim /home/ubuntu/.vagrant.d/gems/gems/vagrant-libvirt-0.0.43/lib/vagrant-libvi
 
 [vagrant up fails with "Initialization parameters must be an attributes hash, got NilClass nil" exception](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/578)
 -> Plz restart libvirtd.
+
+[Registration is skiped on rhel7.5 because subscription_manager_registered cap no longer works](https://github.com/projectatomic/adb-vagrant-registration/issues/126)
+-> Plz add monkeypatch to your Vagrantfile.
 
 Happy Vagrant :)
