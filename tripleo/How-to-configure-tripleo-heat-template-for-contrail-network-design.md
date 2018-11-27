@@ -6,11 +6,11 @@
 - environments/ips-from-pool-all.yaml *Option
 
 ### network-isolation.yaml
-ここでは、それぞれのRoleに対してどのネットワークセグメントを割り振るかを操作できる
+ここでは、それぞれのRoleに対してどのネットワークセグメントを割り振るかを操作できる
 例えば、Control NodeではStorage,Storage_mgmt,InternalAPI,ExternalAPI,Tenantのセグメントを割り振っているが、Contrail ControllerにはInternalAPIと、Tenantしか割り振っていない。
-このように、使うセグメントと使わないセグメントを設定することで、必要最低限の設定を行うことができる。
+このように、使うセグメントと使わないセグメントを設定することで、必要最低限の設定を行うことができる。
 
-NWセグメントの設計はOpenStackへの理解が求められるが、まずは書きスライドを参考にして設計すると良い。
+NWセグメントの設計はOpenStackへの理解が求められるが、まずは下記スライドを参考にして設計すると良い。
 
 ![NW設計参考1](/uploads/NW_diagram01.png "NW設計参考1")
 
