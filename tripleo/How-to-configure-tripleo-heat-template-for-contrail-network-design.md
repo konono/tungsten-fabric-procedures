@@ -12,9 +12,9 @@
 
 NWセグメントの設計はOpenStackへの理解が求められるが、まずは書きスライドを参考にして設計すると良い。
 
-![NW設計参考1](/uploads/Screenshot-2018-11-22-00.32.40.png "NW設計参考1")
+![NW設計参考1](/uploads/NW_diagram01.png "NW設計参考1")
 
-![NW設計参考2](/uploads/Screenshot-2018-11-22-00.32.53.png "NW設計参考2")
+![NW設計参考2](/uploads/NW_diagram01.png "NW設計参考2")
 
 ```
 # Enable the creation of Neutron networks for isolated Overcloud
