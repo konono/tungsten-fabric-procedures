@@ -361,9 +361,9 @@ cp -p ~/overcloud_images.yaml ~/tripleo-heat-templates/user-configuration/
 
 ### 2.9 Configure tripleO-heate-template
 
-#### [TripleO NIC Template](How-to-configure-tripleo-heat-template-for-NIC-Template)
-#### [TripleO contrail services](How-to-configure-tripleo-heat-template-for-contrail-services)
-#### [TripleO contrail NW Design](How-to-configure-tripleo-heat-template-for-contrail-network-design)
+#### [TripleO NIC Template](How-to-configure-tripleo-heat-template-for-NIC-Template.md)
+#### [TripleO contrail services](How-to-configure-tripleo-heat-template-for-contrail-services.md)
+#### [TripleO contrail NW Design](How-to-configure-tripleo-heat-template-for-contrail-network-design.md)
  
 ### 2.10 Install overcloud
 ```
