@@ -933,9 +933,17 @@ vagrant ssh
 ```
 
 Target: **VM**
+E.g LVM
 ```
 $ sudo su -
 $ sudo pvresize /dev/vda3
 $ sudo lvextend -L +250G /dev/mapper/VolGroup00-LogVol00
 $ sudo xfs_growfs /dev/mapper/VolGroup00-LogVol00
+```
+
+E.g ext4
+```
+$ sudo su -
+$ yum -y install e2fsprogs
+$ resize2fs /dev/vda1
 ```
