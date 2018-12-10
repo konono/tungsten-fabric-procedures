@@ -25,7 +25,7 @@ resource_registry:
   OS::TripleO::ContrailDpdk::PreNetworkConfig: ../../extraconfig/pre_network/contrail/contrail_dpdk_pre_network.yaml
 
 parameter_defaults:
-### ServiceNetMapはどのサービスに対してどのセグメントを割り振るかを設定できる、今回はExternalAPIとInternlAPIを統合したかったので、例として下記のように変更した
+#### ServiceNetMapはどのサービスに対してどのセグメントを割り振るかを設定できる、今回はExternalAPIとInternlAPIを統合したかったので、例として下記のように変更した
 #######
 #PublicNetwork: external -> PublicNetwork: internal_api
 #######
@@ -100,7 +100,7 @@ parameter_defaults:
     ComputeHostnameResolveNetwork: internal_api
     ObjectStorageHostnameResolveNetwork: internal_api
     BlockStorageHostnameResolveNetwork: internal_api
-### どのRoleでどのFlavorを使うかの指定がなされている
+### どのRoleでどのFlavorを使うかの指定がなされている
   OvercloudControllerFlavor: control
   OvercloudContrailControllerFlavor: contrail-controller
   OvercloudContrailControlOnlyFlavor: control-only
@@ -108,7 +108,7 @@ parameter_defaults:
   OvercloudContrailDpdkFlavor: compute-dpdk
   OvercloudContrailSriovFlavor: compute-sriov
   OvercloudContrailAnalyticsFlavor: contrail-analytics
-### Roleごとにデプロイする台数を指定、Red Hat的推奨台数は一度のデプロイで50台までらしい
+### Roleごとにデプロイする台数を指定、Red Hat的推奨台数は一度のデプロイで50台までらしい
   ControllerCount: 1
   ContrailControllerCount: 1
   ContrailControlOnlyCount: 0
@@ -119,12 +119,12 @@ parameter_defaults:
 
   NeutronMetadataProxySharedSecret: secret
 # enable public juniper registry
-### Contrailのデプロイで使用するレジストリと、タグの設定
+### Contrailのデプロイで使用するレジストリと、タグの設定
   ContrailRegistry: hub.juniper.net/contrail
   ContrailRegistryUser: xxxxxxxxxxxxxxxxx
   ContrailRegistryPassword: xxxxxxxxxxxxxx
   ContrailImageTag: 5.0.2-0.360-rhel-queens
-### ContrailSettingsではcommon_contrail.envの中に記述されるconfigurationをベタでここに書くことができる
+### ContrailSettingsではcommon_contrail.envの中に記述されるconfigurationをベタでここに書くことができる
   ContrailSettings:
     VROUTER_GATEWAY: 172.16.4.1
     CONFIG_NODEMGR__DEFAULTS__minimum_diskGB: 2
