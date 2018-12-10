@@ -46,7 +46,7 @@ parameter_defaults:
   StorageMgmtAllocationPools: [{'start': '10.0.3.10', 'end': '10.0.3.200'}]
 
   # Routes
-  ### 各セグメントのDefaultRouteの定義を行う、利用しないセグメントでも定義は必要だったりもする
+  ### 各セグメントのDefaultRouteの定義を行う、利用しないセグメントでも定義は必要だったりもする
   ControlPlaneDefaultRoute: 10.0.9.254
   InternalApiDefaultRoute: 172.27.116.1
   ExternalInterfaceDefaultRoute: 10.0.0.254
