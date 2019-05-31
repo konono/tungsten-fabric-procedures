@@ -76,6 +76,11 @@ Vagrant.configure(2) do |config|
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
+  
+  # Can modify vagrant ssh user
+  # config.ssh.username = 'root'
+  # config.ssh.password = 'lab'
+  # config.ssh.insert_key = 'true'
 
   config.vm.define :osp1 do |osp1|
     osp1.vm.network :public_network,
